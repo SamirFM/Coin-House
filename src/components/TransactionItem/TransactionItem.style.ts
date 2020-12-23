@@ -14,6 +14,6 @@ export default StyleSheet.create({
     marginLeft: "2%",
   },
   recipient: { color: "white", fontSize: 12, opacity: 0.5 },
-  transactionTextContainer: { flex: 1, padding: "2%" },
+  transactionTextContainer: { flex: 1, padding: "3%" },
   value: { color: "white", fontSize: 15 },
 });

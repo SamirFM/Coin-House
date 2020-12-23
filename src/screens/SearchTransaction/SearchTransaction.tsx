@@ -33,9 +33,7 @@ const SearchTransaction = () => {
   );
 
   return (
-    <SafeAreaView style={style.searchTransactionContainer}>
-      <TopNavigation title="Coinhouse Ethersan" alignment="center" />
-      <Divider />
+    <>
       <Layout style={style.layout}>
         <Text style={style.labelInput}>
           Please enter a valid ethereum address:
@@ -64,7 +62,7 @@ const SearchTransaction = () => {
           </>
         )}
       </Layout>
-    </SafeAreaView>
+    </>
   );
 };
 
