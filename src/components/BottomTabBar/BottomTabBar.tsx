@@ -5,6 +5,7 @@ export interface BottomTabBarProps {
   navigation: any;
   state: any;
 }
+
 const BottomTabBar: React.FC<BottomTabBarProps> = ({ navigation, state }) => (
   <BottomNavigation
     appearance="noIndicator"
