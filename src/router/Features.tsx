@@ -8,6 +8,7 @@ import BottomTabBar from "../components/BottomTabBar/BottomTabBar";
 import TransactionDetails from "../screens/TransactionDetails/TransactionDetails";
 
 const FeaturesStack = createBottomTabNavigator();
+const ScannerStack = createStackNavigator();
 const TransactionStack = createStackNavigator();
 
 const TransactionStackScreen = () => (
@@ -23,6 +24,12 @@ const TransactionStackScreen = () => (
   </TransactionStack.Navigator>
 );
 
+const ScannerStackScreen = () => (
+  <ScannerStack.Navigator>
+    <ScannerStack.Screen name="ScannerView" component={Scanner} />
+  </ScannerStack.Navigator>
+);
+
 const FeaturesNavigator = () => (
   <NavigationContainer>
     <FeaturesStack.Navigator tabBar={(props) => <BottomTabBar {...props} />}>
@@ -30,7 +37,7 @@ const FeaturesNavigator = () => (
         name="Transaction"
         component={TransactionStackScreen}
       />
-      <FeaturesStack.Screen name="Scanner" component={Scanner} />
+      <FeaturesStack.Screen name="Scanner" component={ScannerStackScreen} />
     </FeaturesStack.Navigator>
   </NavigationContainer>
 );
