@@ -1,4 +1,4 @@
 import { API_KEY } from "../../config";
-const etherscanInstance = require("etherscan-api").init(API_KEY);
+const EtherscanInstance = require("etherscan-api").init(API_KEY);
 
-export default etherscanInstance;
+export default EtherscanInstance;
