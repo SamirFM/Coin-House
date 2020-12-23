@@ -1,5 +1,5 @@
 import React from "react";
-import { ApplicationProvider } from "@ui-kitten/components/theme";
+import { ApplicationProvider } from "@ui-kitten/components";
 import * as eva from "@eva-design/eva";
 import FeaturesNavigator from "./router/Features";
 
