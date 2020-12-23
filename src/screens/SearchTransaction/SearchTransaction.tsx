@@ -1,28 +1,30 @@
-import {
-  Button,
-  Divider,
-  Input,
-  Layout,
-  TopNavigation,
-} from "@ui-kitten/components";
-import React, { useState } from "react";
-import { SafeAreaView, ScrollView, Text } from "react-native";
+import { Button, Input, Layout } from "@ui-kitten/components";
+import React, { useEffect, useState } from "react";
+import { ScrollView, Text } from "react-native";
 import { getAccountBalance } from "../../api/requests/etherTransaction";
 import TransactionItem from "../../components/TransactionItem/TransactionItem";
 import { Transaction } from "../../constants/model/transaction.model";
+import { Route } from "@react-navigation/native";
 import style from "./SearchTransaction.style";
 
-const SearchTransaction = () => {
+type routeParam = {
+  address?: string;
+};
+export interface SearchTransactionProps {
+  route: Route<"SearchTransaction", routeParam>;
+}
+
+const SearchTransaction: React.FC<SearchTransactionProps> = ({ route }) => {
   const [address, setAddress] = useState("");
   const [transactions, setTransactions] = useState<Transaction[]>();
 
   const searchTransaction = () => {
-    getAccountBalance("0xf7eB7637DeD2696B152c7D5EDEe502902B0F1c91").then(
-      (data: any) => {
+    getAccountBalance(route.params?.address ?? address)
+      .then((data: any) => {
         const { result } = data;
         setTransactions(result.map(Transaction.mapToTransaction));
-      }
-    );
+      })
+      .catch((error: string) => alert(error));
   };
 
   const renderTransactionItem = (transaction: Transaction) => (
@@ -31,6 +33,13 @@ const SearchTransaction = () => {
       transaction={transaction}
     />
   );
+
+  useEffect(() => {
+    if (route.params?.address) {
+      setAddress(route.params?.address);
+      searchTransaction();
+    }
+  }, [route.params?.address]);
 
   return (
     <>
