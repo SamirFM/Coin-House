@@ -1,19 +1,20 @@
-import { Button, Divider, Layout, TopNavigation } from "@ui-kitten/components";
+import { Divider, Layout, TopNavigation } from "@ui-kitten/components";
 import React from "react";
+import { Text } from "react-native";
 import { SafeAreaView } from "react-native";
 
-const SearchTransaction = () => {
+const Scanner = () => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
-      <TopNavigation title="MyApp" alignment="center" />
+      <TopNavigation title="QRScanner" alignment="center" />
       <Divider />
       <Layout
         style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
       >
-        <Button>OPEN DETAILS</Button>
+        <Text>Hello World</Text>
       </Layout>
     </SafeAreaView>
   );
 };
 
-export default SearchTransaction;
+export default Scanner;
