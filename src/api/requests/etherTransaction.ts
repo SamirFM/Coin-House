@@ -1,5 +1,5 @@
 import { EtherSort } from "../../constants/enums/EtherSort.enum";
-import etherscanInstance from "../instances/etherscan.instance";
+import EtherscanInstance from "../instances/etherscan.instance";
 
 export const getAccountBalance = (
   address: string,
@@ -7,7 +7,7 @@ export const getAccountBalance = (
   offset: number = 100,
   sort: EtherSort = EtherSort.ASC
 ) => {
-  return etherscanInstance.account.txlist(
+  return EtherscanInstance.account.txlist(
     address,
     page,
     "latest",
